@@ -1,7 +1,19 @@
+<script setup>
+import { useAgeStore } from '@/stores/index.js';
+const ageStore = useAgeStore();
+console.log(ageStore.age);
+
+function changeAge(){
+  ageStore.age++;
+}
+</script>
+
 <template>
-  <div class="about">
-    <h1>This is an about page</h1>
-  </div>
+  <main>
+    <h2>{{ ageStore.age }}</h2>
+    <h2>{{ ageStore.gettersAge }}</h2>
+    <button @click="changeAge">修改age值</button>
+  </main>
 </template>
 
 <style>
